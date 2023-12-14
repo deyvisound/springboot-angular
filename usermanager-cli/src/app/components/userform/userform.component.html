@@ -1,26 +1,38 @@
 <div class="container">
+      
+    <br/>
     <div class="row">
         <div class="col-md-2 float-start"></div>
-        <div class="col-md-8">
-            <form>
+        <div class="col-md-8"> 
+            <div class="row">
+                <h2>Cadastro Novo Usuário:</h2>        
+            </div>  
+            <br/>           
+            <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <label for="inputName">Nome: </label>
-                    <input type="name" class="form-control" id="inputName" placeholder="Nome do Usuário">
+                    <label for="inputName">Nome*: </label>
+                    <input type="text" formControlName="name" class="form-control" id="inputName" placeholder="Nome do Usuário">
+                    <div class="errorMsg text-danger" *ngIf="(form.get('name')?.touched || submitted) && form.get('name')?.hasError('required')">O Nome é obrigatório.</div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail1">Email: </label>
-                    <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp"
+                    <label for="inputEmail1">Email*: </label>
+                    <input type="email" formControlName="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp"
                         placeholder="Email do Usuário">
-                    <small id="emailHelp" class="form-text text-muted">Não compartilhe o email do usuário com ninguém.</small>
+                    <div class="errorMsg text-danger" *ngIf="(form.get('email')?.touched || submitted) && form.get('email')?.hasError('required')">O Email é obrigatório.</div>
+                    <div class="errorMsg text-danger" *ngIf="(form.get('email')?.touched || submitted) && form.get('email')?.hasError('email')">Preencha um email válido.</div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword1">Senha: </label>
-                    <input type="password" class="form-control" id="inputPassword1" placeholder="Senha">
+                    <label for="inputPassword1">Senha*: </label>
+                    <input type="password" formControlName="password" class="form-control" id="inputPassword1" placeholder="Senha">
+                    <div class="errorMsg text-danger" *ngIf="(form.get('password')?.touched || submitted) && form.get('password')?.hasError('required')">O Senha é obrigatório.</div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword1">Confirme a Senha: </label>
-                    <input type="passwordConfirm" class="form-control" id="inputPassword2" placeholder="Confirme a Senha">
+                    <label for="inputPassword1">Confirme a Senha*: </label>
+                    <input type="password" formControlName="passwordConfirm" class="form-control" id="inputPassword2" placeholder="Confirme a Senha">
+                    <div class="errorMsg text-danger" *ngIf="(form.get('passwordConfirm')?.touched || submitted) && form.get('passwordConfirm')?.hasError('required')">A Confirmação da Senha é obrigatório.</div>
+                    <div class="errorMsg text-danger" *ngIf="form.get('passwordConfirm')?.touched && form.get('passwordConfirm')?.hasError('passwordMismatch')">Diferente da senha informada anteriormente.</div>
                 </div>
+                <small class="float-end">* Campos de preenchimento obrigatório.</small>
                 <div class="form-group">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="reset" class="btn btn-outline-secondary float-start">Cancelar</button>
