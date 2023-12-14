@@ -1,7 +1,11 @@
 <div class="row">
     <h2>Users List:</h2>
 </div>
+
 <div class="row">
+    <div class="b-1">
+        <button type="button" class="btn btn-outline-primary float-end" (click)="getUserForm()"> Novo Usuário </button>
+    </div>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -17,7 +21,7 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td></td>
-            </tr>            
+            </tr>
         </tbody>
     </table>
 
