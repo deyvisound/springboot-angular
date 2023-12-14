@@ -1,29 +1,34 @@
 <div class="container">
-    <div class="col-md-8">
-        <form>
-            <div class="form-group">
-                <label for="exampleInputName">Email address</label>
-                <input type="email" class="form-control" id="exampleInputName" aria-describedby="nameHelp"
-                    placeholder="Enter name">
-                <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Confirm Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="row">
+        <div class="col-md-2 float-start"></div>
+        <div class="col-md-8">
+            <form>
+                <div class="form-group">
+                    <label for="inputName">Nome: </label>
+                    <input type="name" class="form-control" id="inputName" placeholder="Nome do Usuário">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail1">Email: </label>
+                    <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp"
+                        placeholder="Email do Usuário">
+                    <small id="emailHelp" class="form-text text-muted">Não compartilhe o email do usuário com ninguém.</small>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword1">Senha: </label>
+                    <input type="password" class="form-control" id="inputPassword1" placeholder="Senha">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword1">Confirme a Senha: </label>
+                    <input type="passwordConfirm" class="form-control" id="inputPassword2" placeholder="Confirme a Senha">
+                </div>
+                <div class="form-group">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="reset" class="btn btn-secondary float-start">Cancelar</button>
+                        <button type="submit" class="btn btn-primary float-end">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>        
+        <div class="col-md-2 float-end"></div>
     </div>
 </div>
