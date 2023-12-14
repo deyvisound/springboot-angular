@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-userlist',
@@ -12,18 +13,24 @@ import { UserService } from '../services/user.service';
 })
 export class UserlistComponent {
 
-  users: any | undefined;
+  users!: User[];
 
-  constructor(private router: Router, private userService: UserService){ }
+  constructor(private router: Router, private userService: UserService){
+    
+  }
 
   getUserForm() {
     this.router.navigate(['/user-form']);
   }
 
   ngOnInit() { 
-    this.userService.getUsers().subscribe((data) => {
-      this.users = data;
-    });
+    this.userService.getUsers().subscribe(
+      (users) => {
+        this.users = users;
+      },
+      (error) =>{
+        console.log("CAPTURAR ESTE ERRO");
+      });
   }
-
+  
 }
