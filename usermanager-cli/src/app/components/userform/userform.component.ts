@@ -39,7 +39,9 @@ export class UserformComponent {
       ]),
       password: new FormControl(this.user.password, Validators.required),
       passwordConfirm: new FormControl(this.user.password, [
-          Validators.required           
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20)           
       ])
     },
     {

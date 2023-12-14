@@ -29,7 +29,6 @@ public class UserController {
 	
 	@PostMapping
 	public User insertUser(@RequestBody User user) {
-		var x = user;
 		return userRepository.save(user);		
 	}
 	

@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">User Manager</a>
+  <a class="navbar-brand" href="#">UserManager</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link button" [ngClass]="{'active': abaAtiva('user-list')}" href="/user-list">Lista de Usuários</a> 
+      <a class="nav-link button" [ngClass]="{'active': abaAtiva('/user-list')}" href="/user-list">Lista de Usuários</a> 
+    </li>
+    <li class="nav-item">
+      <a class="nav-link button" [ngClass]="{'active': abaAtiva('/user-form')}" href="/user-form">Novo Usuário</a> 
     </li>
   </ul>
 </nav>
