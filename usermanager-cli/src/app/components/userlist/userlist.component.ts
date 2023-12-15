@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 
@@ -12,10 +12,15 @@ import { User } from '../../models/user.model';
   styleUrl: './userlist.component.css'
 })
 export class UserlistComponent {
+  msg!: string | null;
+
+  getCutId(id: string): string {
+    return id.substring(0,5);
+  }
 
   users!: User[];
 
-  constructor(private router: Router, private userService: UserService){
+  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService){
     
   }
 
@@ -24,6 +29,9 @@ export class UserlistComponent {
   }
 
   ngOnInit() { 
+    
+    this.msg = this.route.snapshot.paramMap.get('msg');
+
     this.userService.getUsers().subscribe(
       (users) => {
         this.users = users;

@@ -1,3 +1,8 @@
+
+<div *ngIf="msg != null" class="alert alert-success" role="alert">
+    Usuário Salvo Com sucesso.
+</div>
+
 <div class="row">
     <h2>Users List:</h2>
 </div>
@@ -9,7 +14,7 @@
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Código</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
                 <th scope="col"></th>
@@ -17,7 +22,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
-                <th scope="row">{{ user.id }}</th>
+                <th scope="row">{{ getCutId(user.id) }}</th>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>

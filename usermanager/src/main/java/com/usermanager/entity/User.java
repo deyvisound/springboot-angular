@@ -11,24 +11,29 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name="users")
-public class User
-{
+@Table(name = "users")
+public class User {
+	
+	User() {
+		this.name = "";
+		this.email = "";
+		this.password = "";
+	}
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.UUID)		
-    private UUID id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 
-    @Column(nullable=false)
-    private final String name;
+	@Column(nullable = false)
+	private final String name;
 
-    @Column(nullable=false, unique=true)
-    private final String email;
+	@Column(nullable = false, unique = true)
+	private final String email;
 
-    @Column(nullable=false)
-    private final String password;
+	@Column(nullable = false)
+	private final String password;
 
 }
