@@ -8,6 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -28,12 +31,18 @@ public class User {
 	private UUID id;
 
 	@Column(nullable = false)
+	@NotBlank(message = "O Atributo Nome é Obrigatório")
 	private final String name;
 
 	@Column(nullable = false, unique = true)
+	@NotBlank(message = "O Atributo Email é Obrigatório")
+	@Email(message = "Deve ser informado um email válido")
 	private final String email;
 
 	@Column(nullable = false)
+	@NotBlank(message = "O Atributo Senha é Obrigatória")		
 	private final String password;
 
+	@Transient	
+	private String passwordConfirm;
 }

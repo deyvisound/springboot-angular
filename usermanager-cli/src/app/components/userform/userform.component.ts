@@ -4,8 +4,9 @@ import { FormControl, FormGroup, Validators, FormBuilder, ReactiveFormsModule, V
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { CustomvalidationService } from '../../services/customvalidation.service';
-import * as bcrypt from 'bcryptjs';
+//import * as bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-userform',
@@ -24,7 +25,8 @@ export class UserformComponent {
     private router: Router,
     private fb: FormBuilder,
     private cValidator: CustomvalidationService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.submitted = false;
@@ -56,7 +58,8 @@ export class UserformComponent {
 
   private prepareSave(): User {
     const userToSave = new User().deserialize(this.form.value);
-    userToSave.password = bcrypt.hashSync(userToSave.password);
+    //userToSave.password = bcrypt.hashSync(userToSave.password, 10);
+    //userToSave.passwordConfirm = bcrypt.hashSync(userToSave.passwordConfirm, 10);
     return userToSave;
   }
 
@@ -103,8 +106,24 @@ export class UserformComponent {
   onSubmit() {
     this.submitted = true;
     const user = this.prepareSave(); // `user` is now an instance of "User"
-    this.userService.postUser(user).subscribe(user => console.log(user));
-    this.router.navigate(['/user-list', 'successMsg'])
+    this.userService.postUser(user).subscribe(      
+      user => {
+        this.toastr.success('Cadastro Realizado!', `${user.name} Cadastrado com Sucesso!`);
+        this.callRedirectToList();
+      },
+      err => {
+        this.toastr.error('HTTP Error', 'TODO: CapturarErro');
+        this.callRedirectToForm();
+      }
+    );      
+  }
+
+  callRedirectToForm(){
+    this.router.navigate(['/user-form'])
+  }
+
+  callRedirectToList(){
+    this.router.navigate(['/user-list'])
   }
 
 }

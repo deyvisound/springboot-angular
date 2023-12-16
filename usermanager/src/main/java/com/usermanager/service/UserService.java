@@ -20,6 +20,9 @@ public class UserService {
 	}
 
 	public User create(User user) {
+		if(!user.getPassword().equals(user.getPasswordConfirm())) {
+			throw new RuntimeException("A senha e sua confirmação devem coincidir!");
+		}
 		return userRepository.save(user);
 	}
 

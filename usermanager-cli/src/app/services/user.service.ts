@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, throwError } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { User } from '../models/user.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class UserService {
   
   readonly SERVER_URL = 'http://localhost:8080/users';  
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private toastr: ToastrService) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -34,15 +37,13 @@ export class UserService {
       );
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse) {       
     if (error.status === 0) {     
-      console.error(
-        'An error occurred:', error.error);
-    } else {      
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-        
+      return throwError(() => new Error('Erro Inesperado!'));      
+    } else if (error.status !== 0) {      
+      return throwError(() => new Error(`Algo deu errado(${error.status}):`));            
+    }    
+
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
  
