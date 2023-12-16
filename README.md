@@ -1,5 +1,4 @@
 # UserManager SpringBoot + Angular
-## CRUD de usuário com SpringBoot 3 e Angular 17
 
 CRUD completo de usuários utilizando o SrpingBoot 3.2 e Angular 17. O projeto contempla validações de cadastro no frontend assim como no backend. 
 Testes unitários do consumo da API, dentre outros. 
