@@ -6,7 +6,7 @@ export class User implements Deserializable {
     name!: string;
     email!: string;
     password!: string;
-
+   
     deserialize(input: any) {
         Object.assign(this, input);
         return this;

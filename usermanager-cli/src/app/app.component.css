@@ -4,3 +4,8 @@
     font-weight: bolder;
     font-size: x-large;
 }
+
+.swagger_img{
+    border-radius: 1em; 
+    padding-right: 1em;
+}
