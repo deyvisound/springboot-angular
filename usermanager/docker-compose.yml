@@ -1,6 +1,10 @@
 # Use postgres/example user/password credentials
+#
+# ATEÇÃO: 
+# este compose eh eh utilizado apenas quando queremos containerizar APENAS o POSTGRESQL.
+# Caso deseja containerizar a aplicacao inteira, acesse o diretorio:  /src/main/docker  e execute o procedimento comentado dentro do docker-compose.
+#
 
-# docker run --name postgresdb -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
 version: '3.1'
 

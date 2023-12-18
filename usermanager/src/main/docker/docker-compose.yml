@@ -1,0 +1,52 @@
+# Use postgres/example user/password credentials
+
+# MODO DE USAR:
+#
+# ** Compilando o projeto
+# Entre na pasta root do projeto e execute o comando: 
+# $ mvn clean install 
+#
+# ** Criando o container localmente:
+# Dentro deste mesmo diretorio, execute:  
+# $ docker build -t usermanager .
+#
+# ** Executando o docker compose:
+# Dentro deste mesmo diretorio, execute: 
+# $ docker-compose up
+#
+
+version: '3.1'
+
+services:
+  app:
+    image: 'usermanager:latest'
+    ports:
+      - 8080:8080
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/usermanagerdb
+      - SPRING_DATASOURCE_USERNAME=useradmin
+      - SPRING_DATASOURCE_PASSWORD=passroot
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
+      - SPRING_JPA_DEFER-DATASOURCE-INITIALIZATION=true
+      - SPRING_SQL_INIT_MODE=always
+
+  db:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=passroot
+      - POSTGRES_USER=useradmin
+      - POSTGRES_DB=usermanagerdb
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8089:8080
