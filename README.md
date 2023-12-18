@@ -19,7 +19,7 @@ Todo procedimento pode ser feito por meio de IDEs como springToolsSuite, VisualC
 ``` docker compose up ```
 
 *Obs: Caso não queria trabalhar com docker e consequentemente o postgresql, é necessário realizar algumas alterações: *
- - Acesse o arquivo application.properties e comente as configurações do postgresql e, no mesmo arquivo, descomenta as configuraçoes do H2db.
+ - Acesse o arquivo application.properties e comente as configurações do postgresql e, no mesmo arquivo, descomente as configuraçoes do H2db.
  - Acesse o arquivo "usermanager\src\main\resources\schema.sql" e faça o mesmo, comente o comando ***create table***  do postgresql e descomente o do H2db.
 
 - Compilar o projeto:
@@ -34,11 +34,11 @@ Todo procedimento pode ser feito por meio de IDEs como springToolsSuite, VisualC
 - Se tudo ocorrer bem, acesse a URL: "[http://localhost:4200](http://localhost:4200)" e lhe será apresentada a tela abaixo: 
 ![image](https://github.com/deyvisound/springboot-angular/assets/11852582/6404c171-a39a-4674-8124-67d0f910720c)
 
-## Containerizando a Aplicação
+## Containerizando a Aplicação BackEnd
 A aplicação também pode ser completamente iniciada através do **_docker-compose_**.
 Para que isso seja possível, você deverá seguir o seguinte procedimento: 
 
-- Dentro da pasta root do projeto, compile o mesmo:
+- Dentro da pasta root do projeto( /usermanager ), compile o mesmo:
   
 ```mvn clean install -DskipTests```
 
