@@ -31,8 +31,10 @@ class UserServiceTest {
             String name = "Deyvison";
             String email = "deyvison@email.com";
             String password = "$2a$12$520njpOYK4BglI1OCdCmrOp./nx/D10xhGbBrvlzG0RLug1VkyME2";
+            String passwordConfirm = "$2a$12$520njpOYK4BglI1OCdCmrOp./nx/D10xhGbBrvlzG0RLug1VkyME2";
 
             User user = new User( name, email, password);
+            user.setPasswordConfirm(passwordConfirm);
             String userJson = objectMapper.writeValueAsString(user);
 
             mockMvc.perform(
