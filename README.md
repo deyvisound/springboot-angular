@@ -30,3 +30,6 @@ Todo procedimento pode ser feito por meio de IDEs como springToolsSuite, VisualC
 
 - Acesse a pasta root do frontend( /usermanager-cli ) e rode a aplicação:
 ```npm start```
+
+- Se tudo ocorrer bem, acesse a URL: "[http://localhost:4200](http://localhost:4200)" e lhe será apresentada a tela abaixo: 
+![image](https://github.com/deyvisound/springboot-angular/assets/11852582/6404c171-a39a-4674-8124-67d0f910720c)
