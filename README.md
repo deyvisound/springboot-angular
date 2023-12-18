@@ -39,11 +39,14 @@ A aplicação também pode ser completamente iniciada através do **_docker-comp
 Para que isso seja possível, você deverá seguir o seguinte procedimento: 
 
 - Dentro da pasta root do projeto, compile o mesmo:
+  
 ```mvn clean install -DskipTests```
 
 - Acesse o diretório "/src/main/docker" e execute os seguintes comandos:
+  
 Criando a imagem localmente: 
 ``` docker build -t usermanager . ```
+
 Subindo o docker compose:
 ``` docker-compose up ```
 
