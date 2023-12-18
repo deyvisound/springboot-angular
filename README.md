@@ -42,10 +42,10 @@ Para que isso seja possível, você deverá seguir o seguinte procedimento:
 ```mvn clean install -DskipTests```
 
 - Acesse o diretório "/src/main/docker" e execute os seguintes comandos:
- - Criando a imagem localmente: 
- ``` docker build -t usermanager . ```
- - Subindo o docker compose:
- ``` docker-compose up ```
+Criando a imagem localmente: 
+``` docker build -t usermanager . ```
+Subindo o docker compose:
+``` docker-compose up ```
 
 - Pronto! Se tudo ocorrer bem, acesse a URL: "[http://localhost:8080](http://localhost:8080)" e lhe será apresentado uma lista de usuários JSon:
 ```
