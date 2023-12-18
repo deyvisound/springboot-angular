@@ -33,3 +33,43 @@ Todo procedimento pode ser feito por meio de IDEs como springToolsSuite, VisualC
 
 - Se tudo ocorrer bem, acesse a URL: "[http://localhost:4200](http://localhost:4200)" e lhe será apresentada a tela abaixo: 
 ![image](https://github.com/deyvisound/springboot-angular/assets/11852582/6404c171-a39a-4674-8124-67d0f910720c)
+
+## Containerizando a Aplicação
+A aplicação também pode ser completamente iniciada através do **_docker-compose_**.
+Para que isso seja possível, você deverá seguir o seguinte procedimento: 
+
+- Dentro da pasta root do projeto, compile o mesmo:
+```mvn clean install -DskipTests```
+
+- Acesse o diretório "/src/main/docker" e execute os seguintes comandos:
+ - Criando a imagem localmente: 
+ ``` docker build -t usermanager . ```
+ - Subindo o docker compose:
+ ``` docker-compose up ```
+
+- Pronto! Se tudo ocorrer bem, acesse a URL: "[http://localhost:8080](http://localhost:8080)" e lhe será apresentado uma lista de usuários JSon:
+```
+[
+   {
+      "id":"b4067893-aceb-4eff-8903-446dea3d174e",
+      "name":"Zaxey",
+      "email":"zaxey@email.com",
+      "password":"$2a$12$aeWJaEWmq2PhYmZtSYHhTubglhJNIBFj4yLTosesStkAXsE86ZSju",
+      "passwordConfirm":null
+   },
+   {
+      "id":"0aec8773-d0b3-4c52-b12e-4cfedc5ae93a",
+      "name":"Tinoyko",
+      "email":"tinoyko@email.com",
+      "password":"$2a$12$aeWJaEWmq2PhYmZtSYHhTubglhJNIBFj4yLTosesStkAXsE86ZSju",
+      "passwordConfirm":null
+   },
+   {
+      "id":"cc1690f9-c6fb-4c58-bf05-3331950c3e60",
+      "name":"admin",
+      "email":"admin@email.com",
+      "password":"$2a$12$iJcm10YgZIpBZLKLsgmn.eof/dMWJ3fmYLDD2ZDlw4T3rb4ajwbme",
+      "passwordConfirm":null
+   }
+]
+```
