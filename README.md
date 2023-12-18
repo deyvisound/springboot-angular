@@ -9,7 +9,7 @@ Testes unitários do consumo da API, dentre outros.
 - Maven 3
 - Node 10
 
-## Intalado e Rodando o Projeto
+## Instalado e Rodando o Projeto
 Todo procedimento pode ser feito por meio de IDEs como springToolsSuite, VisualCode etc. Porém, mostrarei como fazer sem o auxílio dessas IDEs.
 
 - Clone o projeto: 
